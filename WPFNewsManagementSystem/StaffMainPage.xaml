@@ -1,0 +1,29 @@
+﻿<Window x:Class="WPFNewsManagementSystem.StaffMainPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFNewsManagementSystem"
+        mc:Ignorable="d"
+        Title="StaffMainPage" Height="450" Width="800">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="White" Offset="1"/>
+                <GradientStop Color="#FF00E2FF" Offset="0"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+
+        </Grid.RowDefinitions>
+        <Label Content="Staff Main Page" Grid.Row="0" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="35" FontWeight="Bold" FontFamily="Bahnschrift"/>
+        <Button x:Name="btnMCI" Content="Manage category information" HorizontalAlignment="Center" VerticalAlignment="Top" Click="btnMCI_Click" FontSize="20" Width="324" Height="59" Margin="0,169,0,0"/>
+        <Button x:Name="btnMNA" Content="Manage news article" HorizontalAlignment="Center" VerticalAlignment="Top" Click="btnMNA_Click" FontSize="20" Width="324" Height="59" Margin="0,80,0,0"/>
+        <Button x:Name="btnMTP" Content="Manage the profile" HorizontalAlignment="Center" VerticalAlignment="Top" Click="btnMTP_Click" FontSize="20" Margin="0,255,0,0" Width="324" Height="59"/>
+        <Button x:Name="btnVNHC" Content="View news history created" HorizontalAlignment="Center" VerticalAlignment="Top" Click="btnVNHC_Click" FontSize="20" Margin="0,337,0,0" Width="324" Height="59"/>
+    </Grid>
+</Window>
