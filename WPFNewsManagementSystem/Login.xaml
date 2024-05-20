@@ -14,8 +14,8 @@
             </LinearGradientBrush>
         </Grid.Background>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200" />
             <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="3*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
@@ -25,9 +25,9 @@
         </Grid.RowDefinitions>
         <Label Content="LOGIN" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="133,0,0,0" FontSize="48" FontWeight="Bold" FontFamily="Segoe Script" />
         <Label Content="Username:" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="98,0,0,0" FontSize="20" />
-        <TextBox x:Name="txtUsername" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="508" Height="37" />
+        <TextBox x:Name="txtUsername" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="508" Height="37" />
         <Label Content="Password:" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="98,0,0,0" FontSize="20" />
-        <PasswordBox x:Name="txtPassword" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="508" Height="36" Background="White" />
-        <Button x:Name="btnLogin" Content="Login" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Click="btnLogin_Click" Height="46" Width="77" FontSize="20" Margin="178,0,0,0" />
+        <PasswordBox x:Name="txtPassword" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="508" Height="36" Background="White" />
+        <Button x:Name="btnLogin" Content="Login" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Click="btnLogin_Click" Height="46" Width="77" FontSize="20" Margin="178,0,0,0"  />
     </Grid>
 </Window>
