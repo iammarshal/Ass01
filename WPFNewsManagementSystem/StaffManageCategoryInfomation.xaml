@@ -34,6 +34,6 @@
         <Button x:Name="btnInsert" Content="Insert" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" Click="btnInsert_Click" Height="30" Width="77" FontSize="20" Margin="164,0,0,0" />
         <Button x:Name="btnUpdate" Content="Update" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" Click="btnUpdate_Click" Height="30" Width="76" FontSize="20" Margin="380,0,0,0" />
         <Button x:Name="btnDelete" Content="Delete" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" Click="btnDelete_Click" Height="30" Width="77" FontSize="20" Margin="595,0,0,0" />
-        <DataGrid Grid.Row="5" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+        <DataGrid Grid.Row="5" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="DataGrid_SelectionChanged"/>
     </Grid>
 </Window>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Services.CategoryService;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,11 +20,13 @@ namespace WPFNewsManagementSystem
     /// </summary>
     public partial class StaffManageCategoryInfomation : Window
     {
+        private readonly ICategoryService _categoryService;
         public StaffManageCategoryInfomation()
         {
             InitializeComponent();
+            _categoryService = new CategoryService();
         }
-
+        
         private void btnInsert_Click(object sender, RoutedEventArgs e)
         {
 
@@ -38,5 +41,7 @@ namespace WPFNewsManagementSystem
         {
 
         }
+
+        
     }
 }
