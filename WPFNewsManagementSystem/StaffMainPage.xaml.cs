@@ -31,7 +31,9 @@ namespace WPFNewsManagementSystem
 
         private void btnMCI_Click(object sender, RoutedEventArgs e)
         {
-
+            StaffManageCategoryInfomation staffManageCategoryInfomation = new StaffManageCategoryInfomation();
+            staffManageCategoryInfomation.Show();
+            this.Close();
         }
 
         private void btnMTP_Click(object sender, RoutedEventArgs e)
