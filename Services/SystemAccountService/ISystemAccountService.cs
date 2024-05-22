@@ -10,5 +10,12 @@ namespace Services.SystemAccountService
     public interface ISystemAccountService
     {
         public Task<SystemAccount> Login(string Accountemail, string password);
+        List<SystemAccount> GetSystemAccount();
+        void AddSystemAccount(SystemAccount systemAccount);
+        void UpdateSystemAccount(SystemAccount systemAccount);
+        void DeleteSystemAccount(SystemAccount systemAccount);
+        SystemAccount GetSystemAccountById(short id);
+        Task DeleteNewsArticleAndTags(List<NewsArticle> newsArticles);
+
     }
 }

@@ -23,5 +23,29 @@ namespace Services.SystemAccountService
             var getUser = await _systemAccountRepo.CheckLogin(Accountemail, password);
             return getUser;
         }
+        public void AddSystemAccount(SystemAccount systemAccount)
+        {
+            _systemAccountRepo.AddSystemAccount(systemAccount);
+        }
+        public void DeleteSystemAccount(SystemAccount systemAccount)
+        {
+            _systemAccountRepo.DeleteSystemAccount(systemAccount);
+        }
+        public List<SystemAccount> GetSystemAccount()
+        {
+            return _systemAccountRepo.GetSystemAccount();
+        }
+        public SystemAccount GetSystemAccountById(short id)
+        {
+            return _systemAccountRepo.GetSystemAccountById(id);
+        }
+        public void UpdateSystemAccount(SystemAccount systemAccount)
+        {
+            _systemAccountRepo.UpdateSystemAccount(systemAccount);
+        }
+        public async Task DeleteNewsArticleAndTags(List<NewsArticle> newsArticles)
+        {
+            await _systemAccountRepo.DeleteNewsArticleAndTags(newsArticles);
+        }
     }
 }

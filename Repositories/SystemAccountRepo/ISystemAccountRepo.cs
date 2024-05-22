@@ -10,5 +10,11 @@ namespace Repositories.SystemAccountRepo
     public interface ISystemAccountRepo
     {
         public Task<SystemAccount> CheckLogin(string Accountemail, string password);
+        List<SystemAccount> GetSystemAccount();
+        void AddSystemAccount(SystemAccount systemAccount);
+        void UpdateSystemAccount(SystemAccount systemAccount);
+        void DeleteSystemAccount(SystemAccount systemAccount);
+        SystemAccount GetSystemAccountById(short id);
+        Task DeleteNewsArticleAndTags(List<NewsArticle> newsArticles);
     }
 }

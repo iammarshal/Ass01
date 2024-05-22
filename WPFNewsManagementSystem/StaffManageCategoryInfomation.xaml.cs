@@ -32,8 +32,10 @@ namespace WPFNewsManagementSystem
         {
             try
             {
+
                 var CategoryList = _categoryService.GetCategories();
                 DgData.ItemsSource = CategoryList;
+                
             }
             catch(Exception e) 
             {

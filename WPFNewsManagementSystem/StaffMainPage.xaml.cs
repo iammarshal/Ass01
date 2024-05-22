@@ -26,7 +26,9 @@ namespace WPFNewsManagementSystem
 
         private void btnMNA_Click(object sender, RoutedEventArgs e)
         {
-
+            StaffManageNewsArticle staffManageNewsArticle = new StaffManageNewsArticle();
+            staffManageNewsArticle.Show();
+            this.Close();
         }
 
         private void btnMCI_Click(object sender, RoutedEventArgs e)

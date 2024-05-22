@@ -18,7 +18,7 @@ namespace DataAccessLayer
                 using (var _context = new FunewsManagementDbContext())
                 {
                     listNewsArticles = _context.NewsArticles
-                        .AsNoTracking()
+                        .AsNoTracking().Include(c => c.Category).Include(c => c.Tags).Include(c => c.CreatedBy)
                         .ToList();
                 }
             }

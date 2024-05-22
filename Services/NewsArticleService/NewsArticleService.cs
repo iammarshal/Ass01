@@ -14,10 +14,9 @@ namespace Services.NewsArticleService
         private readonly INewsArticleRepo _newsArticleRepo;
         public NewsArticleService()
         {
-            if (_newsArticleRepo == null)
-            {
+            
                 _newsArticleRepo = new NewsArticleRepo();
-            }
+            
         }
         public void AddNewsArticle(NewsArticle newsArticle)
         {

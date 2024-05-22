@@ -26,7 +26,9 @@ namespace WPFNewsManagementSystem
 
         private void btnMAI_Click(object sender, RoutedEventArgs e)
         {
-
+            AdminManageAccountInformation adminManageAccountInformation = new AdminManageAccountInformation();
+            adminManageAccountInformation.Show();
+            this.Close();
         }
 
         private void btnCRS_Click(object sender, RoutedEventArgs e)
