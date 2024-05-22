@@ -121,7 +121,7 @@ namespace WPFNewsManagementSystem
             DataGridCell RowColumn =
                 dataGrid.Columns[0].GetCellContent(row).Parent as DataGridCell;
             string id = ((TextBlock)RowColumn.Content).Text;
-            Category category = _categoryService.GetCategoryById(Int32.Parse(id));
+            Category category = _categoryService.GetCategoryById(Int16.Parse(id));
             txtCaterogyID.Text = category.CategoryId.ToString();
             txtCaterogyName.Text = category.CategoryName;
             txtCaterogyDesciption.Text = category.CategoryDesciption;

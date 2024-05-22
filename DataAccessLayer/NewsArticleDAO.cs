@@ -8,16 +8,16 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer
 {
-    public class CategoryDAO
+    public class NewsArticleDAO
     {
-        public static List<Category> GetCategories()
+        public static List<NewsArticle> GetNewsArticles()
         {
-            var listCategories = new List<Category>();
+            var listNewsArticles = new List<NewsArticle>();
             try
             {
                 using (var _context = new FunewsManagementDbContext())
                 {
-                    listCategories = _context.Categories
+                    listNewsArticles = _context.NewsArticles
                         .AsNoTracking()
                         .ToList();
                 }
@@ -26,15 +26,15 @@ namespace DataAccessLayer
             {
                 throw new Exception(e.Message);
             }
-            return listCategories;
+            return listNewsArticles;
         }
-        public static void AddCategory(Category category)
+        public static void AddNewsArticle(NewsArticle newsArticle)
         {
             try
             {
                 using (var _context = new FunewsManagementDbContext())
                 {
-                    _context.Categories.Add(category);
+                    _context.NewsArticles.Add(newsArticle);
                     _context.SaveChanges();
                 }
             }
@@ -43,13 +43,13 @@ namespace DataAccessLayer
                 throw new Exception(e.Message);
             }
         }
-        public static void UpdateCategory(Category category)
+        public static void UpdateNewsArticle(NewsArticle newsArticle)
         {
             try
             {
                 using (var _context = new FunewsManagementDbContext())
                 {
-                    _context.Categories.Update(category);
+                    _context.NewsArticles.Update(newsArticle);
                     _context.SaveChanges();
                 }
             }
@@ -58,27 +58,13 @@ namespace DataAccessLayer
                 throw new Exception(e.Message);
             }
         }
-        public static void DeleteCategory(Category category)
+        public static void DeleteNewsArticle(NewsArticle newsArticle)
         {
             try
             {
                 using (var _context = new FunewsManagementDbContext())
                 {
-                    var categoryInDb = _context.Categories
-                        .Include(c => c.NewsArticles)
-                        .SingleOrDefault(c => c.CategoryId == category.CategoryId);
-
-                    if (categoryInDb == null)
-                    {
-                        throw new Exception("Category not found");
-                    }
-
-                    if (categoryInDb.NewsArticles.Any())
-                    {
-                        throw new Exception("Cannot delete category. It is associated with one or more News Articles.");
-                    }
-
-                    _context.Categories.Remove(categoryInDb);
+                    _context.NewsArticles.Remove(newsArticle);
                     _context.SaveChanges();
                 }
             }
@@ -87,12 +73,12 @@ namespace DataAccessLayer
                 throw new Exception(e.Message);
             }
         }
-        public static Category GetCategoryById(int categoryId)
+        public static NewsArticle GetNewsArticleById(string newsArticleId)
         {
             using (var _context = new FunewsManagementDbContext())
             {
-                return _context.Categories
-                    .SingleOrDefault(c => c.CategoryId == categoryId);
+                return _context.NewsArticles
+                    .SingleOrDefault(c => c.NewsArticleId == newsArticleId);
             }
         }
     }

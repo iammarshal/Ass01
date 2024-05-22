@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using BusinessObject.Models;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Identity.Client.NativeInterop;
 using Services.SystemAccountService;
 using System;
 using System.Collections.Generic;
@@ -62,14 +64,23 @@ namespace WPFNewsManagementSystem
                     adminMainPage.Show();
                     this.Close();
                 }
-                var tmp = systemAccountService.Login(email, password);
-
-                if (tmp != null)
+                var accountTask = systemAccountService.Login(email, password);
+                var account = await accountTask;
+                if (account != null && account.AccountRole == 1)
                 {
                     StaffMainPage staffMainPage = new StaffMainPage();
                     staffMainPage.Show();
                     this.Close();
 
+                }
+                if (account != null && account.AccountRole == 2)
+                {
+                    System.Windows.Forms.MessageBox.Show("This is an application for management using by ADMIN and STAFF!", "Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+                else
+                {
+                    System.Windows.Forms.MessageBox.Show("Wrong Login Information!", "Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex) {
