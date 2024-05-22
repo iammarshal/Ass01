@@ -34,7 +34,7 @@ namespace WPFNewsManagementSystem
                 var NewsArticleList = _newsArticleService.GetNewsArticle();
                 DgData.ItemsSource = NewsArticleList;
             }
-            catch (Exception e)
+            catch 
             {
                 resetInput();
             }
