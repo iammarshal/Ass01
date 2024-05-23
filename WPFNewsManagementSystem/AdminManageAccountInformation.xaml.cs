@@ -66,7 +66,23 @@ namespace WPFNewsManagementSystem
 
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                SystemAccount systemAccount = new SystemAccount();
+                systemAccount.AccountName = txtAccountName.Text;
+                systemAccount.AccountEmail = txtAccountEmail.Text;
+                systemAccount.AccountRole = int.Parse(txtAccountRole.Text);
+                systemAccount.AccountPassword = txtPassword.Text;
+                _SystemAccountService.UpdateSystemAccount(systemAccount);
+            }
+            catch (Exception ex)
+            {
+                System.Windows.MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                LoadAccountList();
+            }
         }
 
         private async void btnDelete_Click(object sender, RoutedEventArgs e)
@@ -129,6 +145,11 @@ namespace WPFNewsManagementSystem
             txtAccountName.Text = "";
             txtAccountRole.Text = "";
             txtPassword.Text = "";
+        }
+
+        private void btnClear_Click(object sender, RoutedEventArgs e)
+        {
+            resetInput();
         }
     }
 }
