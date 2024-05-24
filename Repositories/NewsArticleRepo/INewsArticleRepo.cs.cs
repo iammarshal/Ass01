@@ -14,5 +14,6 @@ namespace Repositories.NewsArticleRepo
         void UpdateNewsArticle(NewsArticle newsArticle);
         void DeleteNewsArticle(NewsArticle newsArticle);
         NewsArticle GetNewsArticleById(string id);
+        List<NewsArticle> GetNewsArticlesByCreatedId(short Id);
     }
 }

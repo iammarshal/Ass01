@@ -15,5 +15,6 @@ namespace Repositories.NewsArticleRepo
         public void UpdateNewsArticle(NewsArticle newsArticle) => NewsArticleDAO.UpdateNewsArticle(newsArticle);
         public List<NewsArticle> GetNewsArticle() => NewsArticleDAO.GetNewsArticles();
         public NewsArticle GetNewsArticleById(string id) => NewsArticleDAO.GetNewsArticleById(id);
+        public List<NewsArticle> GetNewsArticlesByCreatedId(short Id) => NewsArticleDAO.GetNewsArticlesByCreatedId(Id);
     }
 }

@@ -18,26 +18,35 @@ namespace Services.NewsArticleService
                 _newsArticleRepo = new NewsArticleRepo();
             
         }
+        
         public void AddNewsArticle(NewsArticle newsArticle)
         {
             _newsArticleRepo.AddNewsArticle(newsArticle);
         }
+        
         public void DeleteNewsArticle(NewsArticle newsArticle)
         {
             _newsArticleRepo.DeleteNewsArticle(newsArticle);
         }
+        
         public List<NewsArticle> GetNewsArticle()
         {
             return _newsArticleRepo.GetNewsArticle();
         }
+        
         public NewsArticle GetNewsArticleById(string id)
         {
             return _newsArticleRepo.GetNewsArticleById(id);
         }
+        
         public void UpdateNewsArticle(NewsArticle newsArticle)
         {
             _newsArticleRepo.UpdateNewsArticle(newsArticle);
         }
-
+        
+        public List<NewsArticle> GetNewsArticlesByCreatedId(short Id)
+        {
+            return _newsArticleRepo.GetNewsArticlesByCreatedId(Id);
+        }
     }
 }

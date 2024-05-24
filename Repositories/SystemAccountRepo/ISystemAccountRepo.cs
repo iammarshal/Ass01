@@ -16,5 +16,7 @@ namespace Repositories.SystemAccountRepo
         void DeleteSystemAccount(SystemAccount systemAccount);
         SystemAccount GetSystemAccountById(short id);
         Task DeleteNewsArticleAndTags(List<NewsArticle> newsArticles);
+        void UpdateUserProfile(string loggedInUsername, SystemAccount updatedProfile);
+        SystemAccount GetLoggedInUser(string email);
     }
 }

@@ -38,14 +38,19 @@ namespace WPFNewsManagementSystem
             this.Close();
         }
 
+        
         private void btnMTP_Click(object sender, RoutedEventArgs e)
         {
-
+            StaffManageTheProfile staffManageTheProfile = new StaffManageTheProfile();
+            staffManageTheProfile.Show();
+            this.Close();
         }
 
         private void btnVNHC_Click(object sender, RoutedEventArgs e)
         {
-
+            ViewNewsHistoryCreated viewNewsHistoryCreated = new ViewNewsHistoryCreated();
+            viewNewsHistoryCreated.Show();
+            this.Close();
         }
     }
 }

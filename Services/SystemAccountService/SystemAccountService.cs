@@ -47,5 +47,14 @@ namespace Services.SystemAccountService
         {
             await _systemAccountRepo.DeleteNewsArticleAndTags(newsArticles);
         }
+        public void UpdateUserProfile(string loggedInUsername, SystemAccount updatedProfile)
+        {
+            _systemAccountRepo.UpdateUserProfile(loggedInUsername, updatedProfile);
+        }
+        public SystemAccount GetLoggedInUser(string email)
+        {
+            return _systemAccountRepo.GetLoggedInUser(email);
+        }
+
     }
 }

@@ -26,7 +26,7 @@
             </Grid.RowDefinitions>
             <Label Content="Manage Account Information" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="25" FontWeight="Bold" FontFamily="Segoe Script" Margin="10,0,0,0" Grid.ColumnSpan="2" />
             <Label Content="AccountID:" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="18,0,0,0" FontSize="15" />
-            <TextBox x:Name="txtAccountID" Grid.Row="1" VerticalAlignment="Center" Height="21" Margin="164,0,25,0" IsEnabled="False"/>
+            <TextBox x:Name="txtAccountID" Grid.Row="1" VerticalAlignment="Center" Height="21" Margin="164,0,25,0"/>
             <Label Content="Account Name:" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="18,0,0,0" FontSize="15" />
             <TextBox x:Name="txtAccountName" Grid.Row="2" VerticalAlignment="Center" Height="21" Background="White" Margin="164,0,25,0" />
             <Label Content="Account Password:" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="18,0,0,0" FontSize="15" />
@@ -37,7 +37,7 @@
             <TextBox x:Name="txtAccountRole" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" Height="21" Background="White" Margin="164,0,25,0" />
         </Grid>
         <Button x:Name="btnInsert" Content="Insert" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center" Click="btnInsert_Click" Height="30" Width="77" FontSize="20" Margin="164,0,0,0" />
-        <Button x:Name="btnUpdate" Content="Update" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center" Click="btnUpdate_Click" Height="30" Width="76" FontSize="20" Margin="380,0,0,0" />
+        <Button x:Name="btnUpdate" Content="Update" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center" Click="btnUpdate_Click" Height="30" Width="76" FontSize="20" Margin="380,0,0,0" IsEnabled="True" />
         <Button x:Name="btnDelete" Content="Delete" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center" Click="btnDelete_Click" Height="30" Width="77" FontSize="20" Margin="595,0,0,0" />
         <Button x:Name="btnClear" Content="Clear" HorizontalAlignment="Left" VerticalAlignment="Top" Click="btnClear_Click" Height="30" Width="77" FontSize="20" Margin="595,149,0,0" />
         <DataGrid x:Name="DgData" SelectionChanged="DataGrid_SelectionChanged" Margin="0,237,0,0" IsReadOnly="True"/>

@@ -10,6 +10,7 @@ namespace DataAccessLayer
 {
     public class SystemAccountDAO
     {
+        public static SystemAccount currentuser = new SystemAccount();
         public async Task<SystemAccount> getUserByEmail(string Accountemail, string password)
         {
             var _context = new FunewsManagementDbContext();
@@ -59,42 +60,7 @@ namespace DataAccessLayer
                 .AsNoTracking()
                 .FirstOrDefault(a => a.AccountId.Equals(id));
         }
-        //public static async Task DeleteNewTagToDeleteAccount(List<NewsArticle> newsArticles)
-        //{
-        //    try
-        //    {
-        //        using var _context = new FunewsManagementDbContext();
-        //        foreach (var newsArticle in newsArticles)
-        //        {
-        //            var article = _context.NewsArticles.Include(a => a.Tags).First(a => a.NewsArticleId.Equals(newsArticle.NewsArticleId));
-        //            foreach(var tag in article.Tags)
-        //            {
-        //                var tagArticle = _context.Tags.Include(t => t.NewsArticles).First(t => t.TagId.Equals(tag.TagId));
-        //                tagArticle.NewsArticles.Remove(article);
-        //            }
-        //        }
-        //        await _context.SaveChangesAsync();
-        //    }catch (Exception e)
-        //    {
-        //        throw new Exception(e.Message);
-        //    }
-        //}
-        //public static async Task DeleteNewsArticleToDeleteAccount(List<NewsArticle> newsArticles)
-        //{
-        //    await DeleteNewTagToDeleteAccount(newsArticles);
-        //    try
-        //    {
-        //        using var _context = new FunewsManagementDbContext();
-        //        var RemoveNewsArticle = await _context.NewsArticles
-        //            .Where(a => newsArticles.Select(a => a.NewsArticleId).Contains(a.NewsArticleId)).ToListAsync();
-        //        _context.NewsArticles.RemoveRange(RemoveNewsArticle);
-        //        await _context.SaveChangesAsync();
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        throw new Exception(e.Message);
-        //    }
-        //}
+        
         public async Task DeleteNewsArticleAndTags(List<NewsArticle> newsArticles)
         {
             try
@@ -118,6 +84,27 @@ namespace DataAccessLayer
             {
                 throw new Exception(e.Message);
             }
+        }
+        public void UpdateUserProfile(string loggedInUsername, SystemAccount updatedProfile)
+        {
+            using var _context = new FunewsManagementDbContext();
+            var user = _context.SystemAccounts.FirstOrDefault(u => u.AccountEmail == loggedInUsername);
+
+            if (user != null)
+            {
+                _context.SystemAccounts.Update(updatedProfile);
+                _context.SaveChanges();
+            }
+            else
+            {
+                throw new ArgumentException("Can't Update");
+            }
+        }
+        public SystemAccount GetLoggedInUser(string email)
+        {
+            using var _context = new FunewsManagementDbContext();
+            SystemAccount user = _context.SystemAccounts.FirstOrDefault(u => u.AccountEmail.Equals(email));
+            return user;
         }
 
     }

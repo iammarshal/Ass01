@@ -48,6 +48,7 @@ namespace WPFNewsManagementSystem
             try
             {
                 SystemAccount systemAccount = new SystemAccount();
+                systemAccount.AccountId = (short)int.Parse(txtAccountID.Text);
                 systemAccount.AccountName = txtAccountName.Text;
                 systemAccount.AccountEmail = txtAccountEmail.Text;
                 systemAccount.AccountPassword = txtPassword.Text;
@@ -69,6 +70,7 @@ namespace WPFNewsManagementSystem
             try
             {
                 SystemAccount systemAccount = new SystemAccount();
+                systemAccount.AccountId = (short)int.Parse(txtAccountID.Text);
                 systemAccount.AccountName = txtAccountName.Text;
                 systemAccount.AccountEmail = txtAccountEmail.Text;
                 systemAccount.AccountRole = int.Parse(txtAccountRole.Text);

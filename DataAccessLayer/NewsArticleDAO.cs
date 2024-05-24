@@ -81,5 +81,17 @@ namespace DataAccessLayer
                     .SingleOrDefault(c => c.NewsArticleId == newsArticleId);
             }
         }
+        public static List<NewsArticle> GetNewsArticlesByCreatedId(short Id)
+        {
+            using (var _context = new FunewsManagementDbContext())
+            {
+                return _context.NewsArticles
+                    .Include(c => c.Category)
+                    .Include(c => c.Tags)
+                    .Include(c => c.CreatedBy)
+                    .Where(c => c.NewsStatus == true && c.CreatedById == Id)
+                    .ToList();
+            }
+        }
     }
 }

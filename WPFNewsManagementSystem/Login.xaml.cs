@@ -1,4 +1,5 @@
 ﻿using BusinessObject.Models;
+using DataAccessLayer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Identity.Client.NativeInterop;
 using Services.SystemAccountService;
@@ -71,6 +72,7 @@ namespace WPFNewsManagementSystem
                     StaffMainPage staffMainPage = new StaffMainPage();
                     staffMainPage.Show();
                     this.Close();
+                    SystemAccountDAO.currentuser = account;
 
                 }
                 if (account != null && account.AccountRole == 2)
@@ -78,10 +80,7 @@ namespace WPFNewsManagementSystem
                     System.Windows.Forms.MessageBox.Show("This is an application for management using by ADMIN and STAFF!", "Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 }
-                else
-                {
-                    System.Windows.Forms.MessageBox.Show("Wrong Login Information!", "Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                
             }
             catch (Exception ex) {
                 System.Windows.Forms.MessageBox.Show(ex.Message, "Login", MessageBoxButtons.OK, MessageBoxIcon.Error); 

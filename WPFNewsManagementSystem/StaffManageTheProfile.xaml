@@ -1,0 +1,36 @@
+﻿<Window x:Class="WPFNewsManagementSystem.StaffManageTheProfile"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFNewsManagementSystem"
+        mc:Ignorable="d"
+        Title="StaffManageTheProfile" Height="450" Width="800" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="White" Offset="1"/>
+                <GradientStop Color="#FF00E2FF" Offset="0"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Label Content="Update Profile" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="12,0,0,0" FontSize="48" FontWeight="Bold" FontFamily="Segoe Script" />
+        <Label Content=" Name:" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Margin="100,0,0,0" />
+        <TextBox x:Name="txtAccountName" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="508" Height="37" />
+        <Label Content=" Email:" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Margin="100,0,0,0" />
+        <TextBox x:Name="txtAccountEmail" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="508" Height="37" />
+        <Label Content="Password:" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="98,0,0,0" FontSize="20" />
+        <TextBox x:Name="txtPassword" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="508" Height="36" Background="White" />
+        <Button x:Name="btnUpdate" Content="Update" Grid.Row="7" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Click="btnUpdate_Click" Height="46" Width="77" FontSize="20" Margin="178,0,0,0"   />
+    </Grid>
+</Window>

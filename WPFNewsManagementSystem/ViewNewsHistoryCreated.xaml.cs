@@ -1,4 +1,5 @@
 ﻿using BusinessObject.Models;
+using DataAccessLayer;
 using Services.NewsArticleService;
 using System;
 using System.Collections.Generic;
@@ -17,16 +18,15 @@ using System.Windows.Shapes;
 namespace WPFNewsManagementSystem
 {
     /// <summary>
-    /// Interaction logic for ViewNewsArticle.xaml
+    /// Interaction logic for ViewNewsHistoryCreated.xaml
     /// </summary>
-    public partial class ViewNewsArticle : Window
+    public partial class ViewNewsHistoryCreated : Window
     {
         private readonly INewsArticleService _newsArticleService;
         private List<NewsArticle> _newsArticles;
-       private int currentPage = 1;
+        private int currentPage = 1;
         private int numberOfPages;
-        
-        public ViewNewsArticle()
+        public ViewNewsHistoryCreated()
         {
             InitializeComponent();
             _newsArticleService = new NewsArticleService();
@@ -35,7 +35,7 @@ namespace WPFNewsManagementSystem
         {
             try
             {
-                _newsArticles = _newsArticleService.GetNewsArticle();
+                _newsArticles = _newsArticleService.GetNewsArticlesByCreatedId(SystemAccountDAO.currentuser.AccountId);
                 numberOfPages = _newsArticles.Count;
             }
             catch (Exception e)
@@ -43,7 +43,6 @@ namespace WPFNewsManagementSystem
                 throw new Exception(e.Message);
             }
         }
-
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             LoadNewsArticleList();
@@ -55,13 +54,12 @@ namespace WPFNewsManagementSystem
             var currentNewsArticle = _newsArticles[currentPage - 1];
             lbTitle.Content = currentNewsArticle.NewsTitle;
             lbCategory.Content += currentNewsArticle.Category.CategoryName;
-            lbTag.Content += String.Join(", ", currentNewsArticle.Tags.Select(x => x.TagName)); 
+            lbTag.Content += String.Join(", ", currentNewsArticle.Tags.Select(x => x.TagName));
             lbAuthor.Content += currentNewsArticle.CreatedBy.AccountName;
             lbCreatedTime.Content += currentNewsArticle.CreatedDate.ToString();
             tblContent.Text = currentNewsArticle.NewsContent;
             lbPageCount.Content = $"{currentPage}/{numberOfPages}";
         }
-
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
             lbCategory.Content = "Category: ";
@@ -69,7 +67,7 @@ namespace WPFNewsManagementSystem
             lbAuthor.Content = "Author: ";
             lbCreatedTime.Content = "Created Time: ";
             btnNext.IsEnabled = true;
-            --currentPage;     
+            --currentPage;
             if (currentPage == 1)
             {
                 btnBack.IsEnabled = false;
@@ -92,11 +90,5 @@ namespace WPFNewsManagementSystem
             PageLoaded();
         }
 
-        private void btnlogin_Click(object sender, RoutedEventArgs e)
-        {
-            Login login = new Login();
-            login.Show();
-            this.Close();
-        }
     }
 }
